@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصر الروان | خبرة السنين في كل قطعة أثاث</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/WhatsApp Image 2026-04-19 at 12.02.27 PM 1.png" alt="Qasr Elrowan Logo">
+                </div>
+
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav-links" id="nav-list">
+                    <a href="#" class="active">الرئيسية</a>
+                    <a href="#">من نحن</a>
+                    <a href="#">الخدمات</a>
+                    <a href="#">تصاميمنا</a>
+                    <a href="#">تواصل معنا</a>
+                </nav>
+
+                <div class="order-action">
+                    <a href="#" class="order-btn">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="images/Frame 2147224995.png" alt="Furniture Design">
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="reveal-text">خبرة السنين في كل قطعة أثاث</h1>
+            <p class="reveal-text">نقدم أثاثاً يجمع بين جودة الخامات ودقة التنفيذ، ليمنح منزلك راحة تدوم لسنوات .</p>
+            <a href="#" class="cta-btn reveal-btn">
+                <span>اكتشف منتجاتنا</span>
+                <div class="cta-icon">
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img animate-left">
+                    <img src="images/Frame 2147225057.png" alt="Dressing Table">
+                </div>
+
+                <div class="about-content animate-up">
+                    <span class="badge">نبذة عنا</span>
+                    <h2>من نحن</h2>
+                    <p>
+                        قصر الروان هو معرض أثاث بخبرة تمتد لأكثر من 35 عاماً في مجال تصنيع وتجارة الأثاث، نحرص على تقديم
+                        منتجات تعتمد على جودة الخامات ودقة التنفيذ في جميع مراحل العمل، بداية من اختيار المواد وحتى
+                        التشطيب النهائي.
+                    </p>
+                    <a href="#" class="more-link">
+                        عرض المزيد
+                        <div class="circle-icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="about-img animate-right">
+                    <img src="images/Frame 2147225145.png" alt="Dining Room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Execution Section -->
+    <section class="custom-exec">
+        <div class="container">
+            <div class="custom-header animate-up">
+                <span class="badge">جولة داخل معرضنا</span>
+                <h2>تنفيذ حسب احتياجك</h2>
+                <p>نوفر إمكانية تنفيذ الأثاث حسب المقاسات والتفاصيل المطلوبة، بما يضمن ملاءمته الكاملة لمساحتك واحتياجك.
+                </p>
+            </div>
+
+            <div class="custom-grid">
+                <div class="custom-list-container animate-right">
+                    <div class="custom-list">
+                        <div class="list-item">
+                            <span></span>
+                            تصميم يناسب المساحة
+                        </div>
+                        <div class="list-item">
+                            <span></span>
+                            اختيار الخامات
+                        </div>
+                        <div class="list-item">
+                            <span></span>
+                            مرونة في التفاصيل
+                        </div>
+                    </div>
+                    <button class="custom-cta">اطلب تصميمك الآن</button>
+                </div>
+
+                <div class="workman-img animate-left">
+                    <img src="images/woorkman.png" alt="Carpenter Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Section -->
+    <!-- Products Slider Section -->
+    <section class="products-slider">
+        <div class="container">
+            <div class="slider-header animate-up">
+                <span class="badge">ما الذي نقدمه</span>
+                <h2>نصنع الجودة ونقدّم الخبرة في كل تفصيلة</h2>
+                <p>نوفر مجموعة متكاملة من الأثاث تناسب مختلف الاحتياجات، مع التركيز على الجودة والعملية</p>
+            </div>
+
+            <div class="swiper productsSwiper animate-up">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1: أنتريه متميز -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/Frame 2147225147.png" alt="أنتريه متميز">
+                            </div>
+                            <div class="product-info">
+                                <div class="p-icon">
+                                    <img src="images/Frame 2147225146.png" alt="Icon">
+                                </div>
+                                <h3>أنتريه متميز</h3>
+                                <p>تصميمات أنيقة وعصرية بأقمشة وألوان تناسب الجميع</p>
+                                <a href="#" class="view-more">
+                                    عرض المزيد
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: غرف السفرة -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/Frame 2147225050.png" alt="غرف السفرة">
+                            </div>
+                            <div class="product-info">
+                                <div class="p-icon">
+                                    <img src="images/Frame 2147225053.png" alt="Icon">
+                                </div>
+                                <h3>غرف السفرة</h3>
+                                <p>تصميمات فاخرة تجمع الراحة والمتانة والأناقة الدائمة الراقية</p>
+                                <a href="#" class="view-more">
+                                    عرض المزيد
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: غرف النوم -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/Frame 2147225048.png" alt="غرف النوم">
+                            </div>
+                            <div class="product-info">
+                                <div class="p-icon">
+                                    <img src="images/Frame 2147225052.png" alt="Icon">
+                                </div>
+                                <h3>غرف النوم</h3>
+                                <p>تصميمات فاخرة تجمع الراحة والمتانة والأناقة الدائمة الراقية</p>
+                                <a href="#" class="view-more">
+                                    عرض المزيد
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: الصالون -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/Frame 2147225050.png" alt="الصالون">
+                            </div>
+                            <div class="product-info">
+                                <div class="p-icon">
+                                    <img src="images/Frame 2147225146.png" alt="Icon">
+                                </div>
+                                <h3>الصالون</h3>
+                                <p>قطع أثاث كلاسيكية تضفي لمسة من الفخامة على منزلك</p>
+                                <a href="#" class="view-more">
+                                    عرض المزيد
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: الركنه -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="product-img">
+                                <img src="images/Frame 2147225151.png" alt="الركنه">
+                            </div>
+                            <div class="product-info">
+                                <div class="p-icon">
+                                    <img src="images/Frame 2147225150.png" alt="Icon">
+                                </div>
+                                <h3>الركنه</h3>
+                                <p>استغلال ذكي للمساحات مع راحة لا تضاهى وتصاميم عصرية</p>
+                                <a href="#" class="view-more">
+                                    عرض المزيد
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <div class="swiper-button-prev custom-arrow">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                    <div class="swiper-pagination custom-dots"></div>
+                    <div class="swiper-button-next custom-arrow">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content animate-right">
+                    <div class="badge-container">
+                        <span class="badge">نبذة عنا</span>
+                    </div>
+                    <h2>لماذا قصر الروان</h2>
+                    <ul class="why-list">
+                        <li>خبرة أكثر من 35 عاماً</li>
+                        <li>تنوع كبير في التصميمات</li>
+                        <li>إمكانية التنفيذ حسب الطلب</li>
+                        <li>خامات عالية الجودة</li>
+                        <li>سرعة في التنفيذ والتسليم</li>
+                    </ul>
+                </div>
+                <div class="why-images animate-left">
+                    <img src="images/Group 6356176.png" alt="لماذا قصر الروان" class="why-main-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-showcase">
+        <div class="container">
+            <div class="video-header animate-up">
+                <span class="badge">جولة داخل معرضنا</span>
+                <h2>نصنع الفخامة... وننفذ التفاصيل</h2>
+                <p>شاهد كيف نحول المساحات إلى تحف فنية خلال 30 ثانية، حيث ندمج بين التصميم العصري ودقة التنفيذ لنخلق
+                    بيئة تنبض بالأناقة والراحة في كل زاوية.</p>
+            </div>
+            <div class="video-wrapper animate-up">
+                <div class="video-frame">
+                    <img src="images/Frame 2147224768.png" alt="Video Poster" class="poster-img">
+                    <div class="video-overlay">
+                        <div class="play-button">
+                            <i class="fa-solid fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quality">
+        <div class="container">
+            <div class="quality-header animate-up">
+                <span class="badge">معايير الجودة</span>
+                <h2>جودة التنفيذ</h2>
+                <p>نلتزم بتقديم مستوى ثابت من الجودة من خلال متابعة دقيقة لكل مرحلة، وتنفيذ احترافي يضمن منتجاً نهائياً
+                    يلبي توقعاتك.</p>
+            </div>
+
+            <div class="quality-grid">
+                <!-- Row 1 -->
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/Layer_1 (7).png" alt="Icon">
+                    </div>
+                    <h3>متابعة دقيقة</h3>
+                    <p>نراقب كل مرحلة من مراحل التصنيع لضمان الحفاظ على أعلى مستوى من الجودة.</p>
+                </div>
+
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/Layer_1 (8).png" alt="Icon">
+                    </div>
+                    <h3>تنفيذ احترافي</h3>
+                    <p>نعتمد على خبرة طويلة وفريق متخصص لتنفيذ كل قطعة بدقة عالية.</p>
+                </div>
+
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/image 449.png" alt="Icon">
+                    </div>
+                    <h3>تشطيب متقن</h3>
+                    <p>نهتم بأدق التفاصيل في التشطيب النهائي للحصول على مظهر متكامل.</p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/Capa_1 (1).png" alt="Icon">
+                    </div>
+                    <h3>فحص نهائي</h3>
+                    <p>يتم مراجعة كل قطعة قبل التسليم للتأكد من مطابقتها لمعاييرنا.</p>
+                </div>
+
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/Capa_1 (2).png" alt="Icon">
+                    </div>
+                    <h3>التزام بالمواعيد</h3>
+                    <p>نحرص على تسليم الطلبات في الوقت المحدد دون تأخير.</p>
+                </div>
+
+                <div class="quality-item animate-item">
+                    <div class="q-icon">
+                        <img src="images/Layer_x0020_1.png" alt="Icon">
+                    </div>
+                    <h3>مرونة في التنفيذ</h3>
+                    <p>نوفر حلولاً مخصصة تناسب احتياجاتك ومساحة منزلك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Projects Slider Section -->
+    <section class="projects-slider-section" id="projects-slider">
+        <div class="container">
+            <div class="section-header animate-up">
+                <span class="badge">ما الجديد</span>
+                <h2>مشاريعنا على أرض الواقع</h2>
+                <p>اكتشف كيف نحول الأفكار إلى قطع أثاث متكاملة تناسب كل مساحة وذوق.</p>
+            </div>
+
+            <div class="projects-carousel-outer">
+                <div class="projects-carousel" id="projectsCarousel">
+                    <div class="project-slide">
+                        <img src="images/Frame 2147225142.png" alt="مشروع 1">
+                    </div>
+                    <div class="project-slide">
+                        <img src="images/Frame 2147225143.png" alt="مشروع 2">
+                    </div>
+                    <div class="project-slide">
+                        <img src="images/Frame 2147225144.png" alt="مشروع 3">
+                    </div>
+                    <div class="project-slide">
+                        <img src="images/Frame 2147225147.png" alt="مشروع 4">
+                    </div>
+                    <div class="project-slide">
+                        <img src="images/Frame 2147225148.png" alt="مشروع 5">
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-pagination">
+                <span class="p-dot active" data-index="0"></span>
+                <span class="p-dot" data-index="1"></span>
+                <span class="p-dot" data-index="2"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="expertise-container">
+            <div class="expertise-slider-container animate-slide-right">
+                <div class="expertise-slider-bg"></div>
+                <div class="expertise-slider-wrapper">
+                    <div class="expertise-slider">
+                        <!-- Slide 1 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225142.png" alt="" />
+
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225143.png" alt="" />
+
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225144.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="expertise-slider-dots">
+                    <span class="expertise-dot active" data-index="0"></span>
+                    <span class="expertise-dot" data-index="1"></span>
+                    <span class="expertise-dot" data-index="2"></span>
+                </div>
+            </div>
+
+            <div class="expertise-content animate-slide-left">
+                <div class="exp-count-box">
+                    <img src="images/Frame 2147225066.png" alt="15+" class="exp-num-img">
+                    <h3 class="exp-subtitle">سنة خبرة في السوق</h3>
+                </div>
+                <a href="#" class="exp-discover-link">
+                    <div class="arrow-circle">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <span>اكتشف أكثر</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
