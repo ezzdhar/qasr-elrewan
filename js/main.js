@@ -226,7 +226,7 @@ function updateProjectsSlider() {
     const slides = document.querySelectorAll('.project-slide');
     if (slides.length === 0) return;
 
-    const gap = 40;
+    const gap = 30;
     const slideWidth = slides[0].offsetWidth;
     const containerWidth = projectsCarousel.parentElement.offsetWidth;
     
@@ -260,6 +260,76 @@ function startProjectsAutoSlide() {
 }
 
 if (projectsCarousel) {
+    let isDragging = false;
+    let startX = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let dragStartTime = 0;
+
+    const outer = projectsCarousel.parentElement;
+
+    function getPositionX(e) {
+        return e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    }
+
+    function dragStart(e) {
+        isDragging = true;
+        startX = getPositionX(e);
+        dragStartTime = Date.now();
+        clearInterval(projectsAutoSlide);
+        projectsCarousel.style.transition = 'none';
+        
+        const slides = document.querySelectorAll('.project-slide');
+        const gap = 30; // Matches CSS gap
+        const slideWidth = slides[0].offsetWidth;
+        const containerWidth = outer.offsetWidth;
+        const centerOffset = (containerWidth / 2) - (slideWidth / 2);
+        prevTranslate = projectsCurrentIndex * (slideWidth + gap) - centerOffset;
+        
+        if (e.type === 'mousedown') e.preventDefault();
+    }
+
+    function dragAction(e) {
+        if (!isDragging) return;
+        const currentX = getPositionX(e);
+        const diff = startX - currentX;
+        currentTranslate = prevTranslate + diff;
+        projectsCarousel.style.transform = `translateX(${currentTranslate}px)`;
+    }
+
+    function dragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const slides = document.querySelectorAll('.project-slide');
+        const gap = 30;
+        const slideWidth = slides[0].offsetWidth;
+        const dragDiff = currentTranslate - prevTranslate;
+        const dragTime = Date.now() - dragStartTime;
+
+        // Snap to slide based on drag distance or velocity
+        if (Math.abs(dragDiff) > slideWidth / 4 || (dragTime < 300 && Math.abs(dragDiff) > 20)) {
+            if (dragDiff > 0) {
+                projectsCurrentIndex = Math.min(projectsCurrentIndex + 1, slides.length - 1);
+            } else {
+                projectsCurrentIndex = Math.max(projectsCurrentIndex - 1, 0);
+            }
+        }
+
+        projectsCarousel.style.transition = 'transform 0.7s cubic-bezier(0.22, 1, 0.36, 1)';
+        updateProjectsSlider();
+        startProjectsAutoSlide();
+    }
+
+    outer.addEventListener('mousedown', dragStart);
+    outer.addEventListener('touchstart', dragStart, { passive: true });
+    
+    window.addEventListener('mousemove', dragAction);
+    window.addEventListener('touchmove', dragAction, { passive: false });
+    
+    window.addEventListener('mouseup', dragEnd);
+    window.addEventListener('touchend', dragEnd);
+    
     projectDots.forEach(dot => {
         dot.addEventListener('click', () => {
             projectsCurrentIndex = parseInt(dot.getAttribute('data-index'));
@@ -269,23 +339,52 @@ if (projectsCarousel) {
         });
     });
 
-    let startX = 0;
-    projectsCarousel.parentElement.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].pageX;
-        clearInterval(projectsAutoSlide);
-    });
-
-    projectsCarousel.parentElement.addEventListener('touchend', (e) => {
-        const endX = e.changedTouches[0].pageX;
-        const diff = startX - endX;
-        if (Math.abs(diff) > 50) {
-            if (diff > 0) projectsCurrentIndex = Math.min(projectsCurrentIndex + 1, projectDots.length - 1);
-            else projectsCurrentIndex = Math.max(projectsCurrentIndex - 1, 0);
-        }
-        updateProjectsSlider();
-        startProjectsAutoSlide();
-    });
-
     window.addEventListener('resize', updateProjectsSlider);
     startProjectsAutoSlide();
+}
+
+// About Page Specific Animations
+if (document.querySelector('.about-hero-new')) {
+    gsap.from(".about-reveal-title", {
+        duration: 1.5,
+        y: 60,
+        opacity: 0,
+        ease: "power4.out",
+        delay: 0.3
+    });
+
+    gsap.from(".about-reveal-desc", {
+        duration: 1.5,
+        y: 40,
+        opacity: 0,
+        ease: "power4.out",
+        delay: 0.6
+    });
+}
+
+if (document.querySelector('.about-features-new')) {
+    gsap.from(".about-feature-item", {
+        scrollTrigger: {
+            trigger: ".about-features-new",
+            start: "top 85%",
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+}
+
+if (document.querySelector('.brand-banner-section')) {
+    gsap.from(".brand-banner-full", {
+        scrollTrigger: {
+            trigger: ".brand-banner-section",
+            start: "top 80%",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1.5,
+        ease: "power2.out"
+    });
 }

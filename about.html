@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>من نحن | قصر الروان</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logofooter.png" alt="Qasr Elrowan Logo"
+                        style="filter: brightness(0); height: 55px;">
+                </div>
+
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav-links" id="nav-list">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="about.html" class="active">من نحن</a>
+                    <a href="#">الخدمات</a>
+                    <a href="#">تصاميمنا</a>
+                    <a href="#">تواصل معنا</a>
+                </nav>
+
+                <div class="order-action">
+                    <a href="#" class="order-btn">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Page Hero -->
+    <section class="about-hero-new">
+        <div class="about-hero-bg">
+            <img src="images/Frame 2147224770.png" alt="About Us Collage">
+        </div>
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+            <h1 class="about-reveal-title">نبذة عنا</h1>
+            <p class="about-reveal-desc">
+                نقدم أثاثاً يجمع بين جودة الخامات ودقة التنفيذ، بخبرة طويلة وتصميمات تناسب مختلف المساحات مع إمكانية
+                التنفيذ حسب الطلب.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Features Section -->
+    <section class="about-features-new">
+        <div class="container">
+            <div class="about-features-grid">
+                <!-- Feature 1 (Right) -->
+                <div class="about-feature-item animate-up-about">
+                    <div class="about-feature-icon">
+                        <img src="images/Icon (10).png" alt="خبرة">
+                    </div>
+                    <div class="about-feature-text">
+                        <h3>خبرة طويلة</h3>
+                        <p>أكثر من 35 عامًا في صناعة الأثاث</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 (Middle) -->
+                <div class="about-feature-item animate-up-about">
+                    <div class="about-feature-icon">
+                        <img src="images/Group (13).png" alt="تنفيذ">
+                    </div>
+                    <div class="about-feature-text">
+                        <h3>تنفيذ حسب الطلب</h3>
+                        <p>تصميم يناسب مساحتك واحتياجك</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 (Left) -->
+                <div class="about-feature-item animate-up-about">
+                    <div class="about-feature-icon">
+                        <img src="images/Слой_1.png" alt="تشطيب">
+                    </div>
+                    <div class="about-feature-text">
+                        <h3>تشطيب متقن</h3>
+                        <p>اهتمام بالتفاصيل في كل قطعة</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img animate-left">
+                    <img src="images/Frame 2147225057.png" alt="Dressing Table">
+                </div>
+
+                <div class="about-content animate-up">
+                    <span class="badge">نبذة عنا</span>
+                    <h2>من نحن</h2>
+                    <p>
+                        قصر الروان هو معرض أثاث بخبرة تمتد لأكثر من 35 عاماً في مجال تصنيع وتجارة الأثاث، نحرص على تقديم
+                        منتجات تعتمد على جودة الخامات ودقة التنفيذ في جميع مراحل العمل، بداية من اختيار المواد وحتى
+                        التشطيب النهائي.
+                    </p>
+                    <a href="#" class="more-link">
+                        عرض المزيد
+                        <div class="circle-icon">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="about-img animate-right">
+                    <img src="images/Frame 2147225145.png" alt="Dining Room">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="custom-exec">
+        <div class="container">
+            <div class="custom-header animate-up">
+                <span class="badge">جولة داخل معرضنا</span>
+                <h2>تنفيذ حسب احتياجك</h2>
+                <p>نوفر إمكانية تنفيذ الأثاث حسب المقاسات والتفاصيل المطلوبة، بما يضمن ملاءمته الكاملة لمساحتك واحتياجك.
+                </p>
+            </div>
+
+            <div class="custom-grid">
+                <div class="custom-list-container animate-right">
+                    <div class="custom-list">
+                        <div class="list-item">
+                            <span></span>
+                            تصميم يناسب المساحة
+                        </div>
+                        <div class="list-item">
+                            <span></span>
+                            اختيار الخامات
+                        </div>
+                        <div class="list-item">
+                            <span></span>
+                            مرونة في التفاصيل
+                        </div>
+                    </div>
+                    <button class="custom-cta">اطلب تصميمك الآن</button>
+                </div>
+
+                <div class="workman-img animate-left">
+                    <img src="images/woorkman.png" alt="Carpenter Illustration">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Brand Banner Section -->
+    <section class="brand-banner-section animate-up">
+        <div class="brand-banner-full">
+            <img src="images/WhatsApp Image 2026-04-19 at 12.02.29 PM 1.png" alt="Qasr Elrowan Since 1996">
+        </div>
+    </section>
+
+    <section class="expertise" id="expertise">
+        <div class="expertise-container">
+            <div class="expertise-slider-container animate-slide-right">
+                <div class="expertise-slider-bg"></div>
+                <div class="expertise-slider-wrapper">
+                    <div class="expertise-slider">
+                        <!-- Slide 1 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225142.png" alt="" />
+
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225143.png" alt="" />
+
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="expertise-slide">
+                            <img src="images/Frame 2147225144.png" alt="" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="expertise-slider-dots">
+                    <span class="expertise-dot active" data-index="0"></span>
+                    <span class="expertise-dot" data-index="1"></span>
+                    <span class="expertise-dot" data-index="2"></span>
+                </div>
+            </div>
+
+            <div class="expertise-content animate-slide-left">
+                <div class="exp-count-box">
+                    <img src="images/Frame 2147225066.png" alt="15+" class="exp-num-img">
+                    <h3 class="exp-subtitle">سنة خبرة في السوق</h3>
+                </div>
+                <a href="#" class="exp-discover-link">
+                    <div class="arrow-circle">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <span>اكتشف أكثر</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-overlay"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Quick Links -->
+                <div class="footer-col links-col animate-up">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="#">الخدمات</a></li>
+                        <li><a href="#">المشاريع</a></li>
+                        <li><a href="#">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Logo & Description -->
+                <div class="footer-col brand-col animate-up">
+                    <div class="footer-logo">
+                        <img src="images/logofooter.png" alt="Qasr Elrowan">
+                    </div>
+                    <span class="since-text">S I N C E 1 9 8 6</span>
+                    <p class="brand-desc">
+                        نقدم حلول تصميم وتشطيب متكاملة، تجمع بين الدقة، الجودة، والتنفيذ الاحترافي من الفكرة حتى
+                        التسليم.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col contact-col animate-up">
+                    <h3>معلومات التواصل</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (3).png" alt="Phone">
+                            </div>
+                            <span class="contact-text">+20 010-000-0000</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (4).png" alt="Email">
+                            </div>
+                            <span class="contact-text">info@Archmohd.com</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (5).png" alt="Location">
+                            </div>
+                            <span class="contact-text">دمياط الجديدة , منطة المركزية</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="#"><img src="images/formkit_facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="images/Group (10).png" alt="TikTok"></a>
+                    <a href="#"><img src="images/Group (11).png" alt="WhatsApp"></a>
+                    <a href="#"><img src="images/Group (12).png" alt="YouTube"></a>
+                </div>
+                <p class="copyright">© 2026 Example All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
