@@ -388,3 +388,35 @@ if (document.querySelector('.brand-banner-section')) {
         ease: "power2.out"
     });
 }
+
+// Services Showcase Animations
+if (document.querySelectorAll('.service-row').length > 0) {
+    document.querySelectorAll('.service-row').forEach((row, index) => {
+        const isReverse = row.classList.contains('reverse');
+        const card = row.querySelector('.service-card-wrapper');
+        const textBg = row.querySelector('.service-text-bg');
+
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: row,
+                start: "top 80%",
+            },
+            x: isReverse ? -100 : 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+
+        gsap.from(textBg, {
+            scrollTrigger: {
+                trigger: row,
+                start: "top 80%",
+            },
+            x: isReverse ? 100 : -100,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.2,
+            ease: "power3.out"
+        });
+    });
+}
