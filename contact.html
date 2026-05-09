@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا | قصر الروان</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">
+                    <img src="images/logofooter.png" alt="Qasr Elrowan Logo"
+                        style="filter: brightness(0); height: 55px;">
+                </div>
+
+                <div class="menu-toggle" id="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <nav class="nav-links" id="nav-list">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="about.html">من نحن</a>
+                    <a href="services.html">الخدمات</a>
+                    <a href="#">تصاميمنا</a>
+                    <a href="contact.html" class="active">تواصل معنا</a>
+                </nav>
+
+                <div class="order-action">
+                    <a href="#" class="order-btn">اطلب الآن</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Page Section -->
+    <section class="contact-page">
+        <div class="contact-bg">
+            <!-- You can use the specific image the user mentioned here -->
+            <img src="images/conect.png" alt="Contact Background">
+        </div>
+        <div class="contact-overlay"></div>
+
+        <div class="container contact-container">
+            <div class="contact-header">
+                <h1>تواصل معنا</h1>
+                <p>نسعد دائما بالتواصل معكم والاستماع إلى آرائكم واستفساراتكم، حيث نحرص على تقديم أفضل تجربة ممكنة لكم.
+                </p>
+            </div>
+
+            <div class="contact-form-wrapper">
+                <h2 class="form-title">أرسل لنا رسالتك</h2>
+                <form class="main-contact-form" action="#" method="POST">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first_name">الاسم الأول</label>
+                            <input type="text" id="first_name" name="first_name" placeholder="الاسم الأول">
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name">الاسم الأخير</label>
+                            <input type="text" id="last_name" name="last_name" placeholder="الاسم الأخير">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" placeholder="البريد الإلكتروني">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone" placeholder="أدخل رقم الهاتف" dir="rtl">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service_type">نوع الخدمة</label>
+                        <div class="select-wrapper">
+                            <select id="service_type" name="service_type" required>
+                                <option value="" disabled selected>اختر نوع الخدمة التي تريدها</option>
+                                <option value="1">غرفة نوم ماستر</option>
+                                <option value="2">غرفة نوم أطفال</option>
+                                <option value="3">أنترية وركنة </option>
+                                <option value="3">غرفة السفرة </option>
+                                <option value="3">الصالون </option>
+                                <option value="3">الكل</option>
+                            </select>
+                            <i class="fas fa-chevron-down select-icon"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="الرسالة"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">ابدأ مشروعك الان</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-overlay"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Quick Links -->
+                <div class="footer-col links-col animate-up">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">الخدمات</a></li>
+                        <li><a href="#">المشاريع</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <!-- Logo & Description -->
+                <div class="footer-col brand-col animate-up">
+                    <div class="footer-logo">
+                        <img src="images/logofooter.png" alt="Qasr Elrowan">
+                    </div>
+                    <span class="since-text">S I N C E 1 9 8 6</span>
+                    <p class="brand-desc">
+                        نقدم حلول تصميم وتشطيب متكاملة، تجمع بين الدقة، الجودة، والتنفيذ الاحترافي من الفكرة حتى
+                        التسليم.
+                    </p>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-col contact-col animate-up">
+                    <h3>معلومات التواصل</h3>
+                    <ul class="contact-list">
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (3).png" alt="Phone">
+                            </div>
+                            <span class="contact-text">+20 010-000-0000</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (4).png" alt="Email">
+                            </div>
+                            <span class="contact-text">info@Archmohd.com</span>
+                        </li>
+                        <li>
+                            <div class="contact-icon-box">
+                                <img src="images/Button (5).png" alt="Location">
+                            </div>
+                            <span class="contact-text">دمياط الجديدة , منطة المركزية</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/kasrrawan" target="_blank">
+                        <img src="images/formkit_facebook.png" alt="Facebook">
+                    </a>
+                    <a href="https://www.tiktok.com/@kasrrawan?lang=en" target="_blank"><img src="images/Group (10).png"
+                            alt="TikTok"></a>
+                    <a href="https://api.whatsapp.com/send?phone=01277874780" target="_blank"><img
+                            src="images/Group (11).png" alt="WhatsApp"></a>
+                    <a href="#"><img src="images/Group (12).png" alt="YouTube"></a>
+                </div>
+                <p class="copyright">© 2026 Example All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Specific GSAP animations for the contact page
+        document.addEventListener('DOMContentLoaded', () => {
+            const tl = gsap.timeline();
+
+            tl.from('.contact-header h1', {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                delay: 0.2
+            })
+                .from('.contact-header p', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: 'power3.out'
+                }, "-=0.4")
+                .from('.form-title', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'power3.out'
+                }, "-=0.4")
+                .from('.form-group', {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: 'power3.out'
+                }, "-=0.2");
+                
+                // Ensure submit button is always visible by removing it from the from timeline 
+                // or just setting its initial state clearly
+                gsap.fromTo('.submit-btn', 
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', delay: 1.2 }
+                );
+        });
+    </script>
+</body>
+
+</html>

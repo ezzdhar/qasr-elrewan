@@ -420,3 +420,84 @@ if (document.querySelectorAll('.service-row').length > 0) {
         });
     });
 }
+// Bedroom Gallery Lightbox
+const viewBtns = document.querySelectorAll(".view-btn");
+const lightbox = document.getElementById("gallery-lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.getElementById("lightbox-close");
+const nextBtn = document.getElementById("lightbox-next");
+const prevBtn = document.getElementById("lightbox-prev");
+
+if (viewBtns.length > 0 && lightbox) {
+    let currentImageIndex = 0;
+    const images = Array.from(document.querySelectorAll(".gallery-item img")).map(img => img.src);
+
+    function openLightbox(index) {
+        currentImageIndex = index;
+        lightboxImg.src = images[currentImageIndex];
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+
+    function nextImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        lightboxImg.src = images[currentImageIndex];
+    }
+
+    function prevImage() {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentImageIndex];
+    }
+
+    const galleryItems = document.querySelectorAll(".gallery-item");
+    galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            openLightbox(index);
+        });
+    });
+
+    closeBtn.addEventListener("click", closeLightbox);
+    
+    // Arabic layout: prev button is on the right, next is on the left
+    // But intuitively, "next" is moving forward in array. 
+    // Let us make nextBtn go forward and prevBtn go backward.
+    nextBtn.addEventListener("click", nextImage);
+    prevBtn.addEventListener("click", prevImage);
+
+    // Close on clicking outside the image
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox || e.target.classList.contains("lightbox-content")) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") prevImage(); // In RTL, right arrow might mean previous
+        if (e.key === "ArrowLeft") nextImage();  // In RTL, left arrow might mean next
+    });
+}
+
+
+// Enhanced GSAP Animation for Gallery
+if (document.querySelector(".bedroom-gallery")) {
+    gsap.from(".gallery-item", {
+        scrollTrigger: {
+            trigger: ".bedroom-gallery",
+            start: "top 80%",
+        },
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out"
+    });
+}
+
