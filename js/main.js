@@ -501,3 +501,47 @@ if (document.querySelector(".bedroom-gallery")) {
     });
 }
 
+// =============================================
+// PSS Swiper — Projects Slider Section
+// =============================================
+if (document.querySelector('.pssSwiper')) {
+    const pssSwiper = new Swiper('.pssSwiper', {
+        slidesPerView: 1.3,
+        centeredSlides: true,
+        spaceBetween: 20,
+        loop: true,
+        speed: 600,
+        grabCursor: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: '.pss-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            600: {
+                slidesPerView: 1.5,
+                spaceBetween: 24,
+            },
+            900: {
+                slidesPerView: 1.8,
+                spaceBetween: 30,
+            },
+            1200: {
+                slidesPerView: 2.2,
+                spaceBetween: 36,
+            }
+        }
+    });
+
+    gsap.from(".pss-header > *", {
+        scrollTrigger: { trigger: ".projects-slider-section", start: "top 85%" },
+        y: 40, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out"
+    });
+}
+
+
+
