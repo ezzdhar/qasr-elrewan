@@ -429,12 +429,67 @@ const nextBtn = document.getElementById("lightbox-next");
 const prevBtn = document.getElementById("lightbox-prev");
 
 if (viewBtns.length > 0 && lightbox) {
+    let currentSetIndex = 0;
     let currentImageIndex = 0;
-    const images = Array.from(document.querySelectorAll(".gallery-item img")).map(img => img.src);
+    const gallerySets = [
+        [
+            "images/bed11.png",
+            "images/bed12.png",
+            "images/bed13.png",
+            "images/bed14.png",
+            "images/bed15.png",
+            "images/bed16.png"
+        ],
+        [
+            "images/bed21.png",
+            "images/bed22.png",
+            "images/bed23.png",
+            "images/bed24.png",
+            "images/bed25.png",
+            "images/bed26.png"
+        ],
+        [
+            "images/bed32.png",
+            "images/bed33.png",
+            "images/bed34.png",
+            "images/bed35.png",
+            "images/bed36.png",
+            "images/bed37.png",
+            "images/bed38.png"
+        ],
+        [
+            "images/bed31.png",
+            "images/bed42.png",
+            "images/bed43.png",
+            "images/bed45.png"
+        ],
+        [
+            "images/bed51.png",
+            "images/bed52.png",
+            "images/bed53.png",
+            "images/bed54.png",
+            "images/bed55.png",
+            "images/bed56.png"
+        ],
+        [
+            "images/bed61.png",
+            "images/bed62.png",
+            "images/bed63.png",
+            "images/bed64.png",
+            "images/bed65.png",
+            "images/bed66.png"
+        ],
+       
+    ];
+
+    function showCurrentImage() {
+        lightboxImg.src = gallerySets[currentSetIndex][currentImageIndex];
+    }
 
     function openLightbox(index) {
-        currentImageIndex = index;
-        lightboxImg.src = images[currentImageIndex];
+        currentSetIndex = index;
+        currentImageIndex = 0;
+        showCurrentImage();
         lightbox.classList.add("active");
         document.body.style.overflow = "hidden"; // Prevent scrolling
     }
@@ -445,13 +500,15 @@ if (viewBtns.length > 0 && lightbox) {
     }
 
     function nextImage() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        lightboxImg.src = images[currentImageIndex];
+        const setLength = gallerySets[currentSetIndex].length;
+        currentImageIndex = (currentImageIndex + 1) % setLength;
+        showCurrentImage();
     }
 
     function prevImage() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        lightboxImg.src = images[currentImageIndex];
+        const setLength = gallerySets[currentSetIndex].length;
+        currentImageIndex = (currentImageIndex - 1 + setLength) % setLength;
+        showCurrentImage();
     }
 
     const galleryItems = document.querySelectorAll(".gallery-item");
@@ -462,10 +519,6 @@ if (viewBtns.length > 0 && lightbox) {
     });
 
     closeBtn.addEventListener("click", closeLightbox);
-    
-    // Arabic layout: prev button is on the right, next is on the left
-    // But intuitively, "next" is moving forward in array. 
-    // Let us make nextBtn go forward and prevBtn go backward.
     nextBtn.addEventListener("click", nextImage);
     prevBtn.addEventListener("click", prevImage);
 
@@ -480,8 +533,8 @@ if (viewBtns.length > 0 && lightbox) {
     document.addEventListener("keydown", (e) => {
         if (!lightbox.classList.contains("active")) return;
         if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowRight") prevImage(); // In RTL, right arrow might mean previous
-        if (e.key === "ArrowLeft") nextImage();  // In RTL, left arrow might mean next
+        if (e.key === "ArrowRight") prevImage();
+        if (e.key === "ArrowLeft") nextImage();
     });
 }
 
