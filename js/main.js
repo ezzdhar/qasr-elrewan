@@ -229,14 +229,14 @@ function updateProjectsSlider() {
     const gap = 30;
     const slideWidth = slides[0].offsetWidth;
     const containerWidth = projectsCarousel.parentElement.offsetWidth;
-    
+
     // Centering logic for wider slide
     const centerOffset = (containerWidth / 2) - (slideWidth / 2);
     const slideOffset = projectsCurrentIndex * (slideWidth + gap);
-    
+
     // Using a more robust offset calculation
     const finalTranslate = slideOffset - centerOffset;
-    
+
     projectsCarousel.style.transform = `translateX(${finalTranslate}px)`;
 
     slides.forEach((slide, index) => {
@@ -278,14 +278,14 @@ if (projectsCarousel) {
         dragStartTime = Date.now();
         clearInterval(projectsAutoSlide);
         projectsCarousel.style.transition = 'none';
-        
+
         const slides = document.querySelectorAll('.project-slide');
         const gap = 30; // Matches CSS gap
         const slideWidth = slides[0].offsetWidth;
         const containerWidth = outer.offsetWidth;
         const centerOffset = (containerWidth / 2) - (slideWidth / 2);
         prevTranslate = projectsCurrentIndex * (slideWidth + gap) - centerOffset;
-        
+
         if (e.type === 'mousedown') e.preventDefault();
     }
 
@@ -300,7 +300,7 @@ if (projectsCarousel) {
     function dragEnd(e) {
         if (!isDragging) return;
         isDragging = false;
-        
+
         const slides = document.querySelectorAll('.project-slide');
         const gap = 30;
         const slideWidth = slides[0].offsetWidth;
@@ -323,13 +323,13 @@ if (projectsCarousel) {
 
     outer.addEventListener('mousedown', dragStart);
     outer.addEventListener('touchstart', dragStart, { passive: true });
-    
+
     window.addEventListener('mousemove', dragAction);
     window.addEventListener('touchmove', dragAction, { passive: false });
-    
+
     window.addEventListener('mouseup', dragEnd);
     window.addEventListener('touchend', dragEnd);
-    
+
     projectDots.forEach(dot => {
         dot.addEventListener('click', () => {
             projectsCurrentIndex = parseInt(dot.getAttribute('data-index'));
@@ -479,7 +479,7 @@ if (viewBtns.length > 0 && lightbox) {
             "images/bed65.png",
             "images/bed66.png"
         ],
-       
+
     ];
 
     function showCurrentImage() {
