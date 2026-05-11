@@ -428,7 +428,7 @@ const closeBtn = document.getElementById("lightbox-close");
 const nextBtn = document.getElementById("lightbox-next");
 const prevBtn = document.getElementById("lightbox-prev");
 
-if (viewBtns.length > 0 && lightbox) {
+if (viewBtns.length > 0 && lightbox && document.querySelector('h1').textContent.includes('غرف')) {
     let currentSetIndex = 0;
     let currentImageIndex = 0;
     const gallerySets = [
@@ -535,6 +535,103 @@ if (viewBtns.length > 0 && lightbox) {
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowRight") prevImage();
         if (e.key === "ArrowLeft") nextImage();
+    });
+}
+
+
+// Antari Gallery Lightbox
+if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').textContent.includes('الأنتري')) {
+    const antariViewBtns = document.querySelectorAll(".view-btn");
+    const antariLightbox = document.getElementById("gallery-lightbox");
+    const antariLightboxImg = document.getElementById("lightbox-img");
+    const antariCloseBtn = document.getElementById("lightbox-close");
+    const antariNextBtn = document.getElementById("lightbox-next");
+    const antariPrevBtn = document.getElementById("lightbox-prev");
+
+    let antariCurrentSetIndex = 0;
+    let antariCurrentImageIndex = 0;
+    const antariGallerySets = [
+        [
+            "images/ant1.png",
+            "images/ant2.png",
+            "images/ant3.png",
+            "images/ant4.png",
+            "images/ant5.png",
+            "images/ant6.png"
+        
+        ],
+        [
+            "images/ant21.png",
+            "images/ant22.png",
+            "images/ant23.png",
+            "images/ant24.png",
+            "images/ant25.png",
+            "images/ant26.png"
+           
+        ],
+        [
+            "images/ant31.png",
+            "images/ant32.png",
+            "images/ant33.png",
+            "images/ant34.png",
+            "images/ant35.png",
+            "images/ant36.png"
+        ],
+      
+    
+    ];
+
+    function antariShowCurrentImage() {
+        antariLightboxImg.src = antariGallerySets[antariCurrentSetIndex][antariCurrentImageIndex];
+    }
+
+    function antariOpenLightbox(index) {
+        antariCurrentSetIndex = index;
+        antariCurrentImageIndex = 0;
+        antariShowCurrentImage();
+        antariLightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function antariCloseLightbox() {
+        antariLightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+
+    function antariNextImage() {
+        const setLength = antariGallerySets[antariCurrentSetIndex].length;
+        antariCurrentImageIndex = (antariCurrentImageIndex + 1) % setLength;
+        antariShowCurrentImage();
+    }
+
+    function antariPrevImage() {
+        const setLength = antariGallerySets[antariCurrentSetIndex].length;
+        antariCurrentImageIndex = (antariCurrentImageIndex - 1 + setLength) % setLength;
+        antariShowCurrentImage();
+    }
+
+    const antariGalleryItems = document.querySelectorAll(".gallery-item");
+    antariGalleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            antariOpenLightbox(index);
+        });
+    });
+
+    antariCloseBtn.addEventListener("click", antariCloseLightbox);
+    antariNextBtn.addEventListener("click", antariNextImage);
+    antariPrevBtn.addEventListener("click", antariPrevImage);
+
+    antariLightbox.addEventListener("click", (e) => {
+        if (e.target === antariLightbox || e.target.classList.contains("lightbox-content")) {
+            antariCloseLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!antariLightbox.classList.contains("active")) return;
+        if (e.key === "Escape") antariCloseLightbox();
+        if (e.key === "ArrowRight") antariPrevImage();
+        if (e.key === "ArrowLeft") antariNextImage();
     });
 }
 
