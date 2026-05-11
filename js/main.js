@@ -636,6 +636,123 @@ if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').t
 }
 
 
+// Sofra Gallery Lightbox
+if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').textContent.includes('السفــــــــــــــــــــــــــرة')) {
+    const sofraViewBtns = document.querySelectorAll(".view-btn");
+    const sofraLightbox = document.getElementById("gallery-lightbox");
+    const sofraLightboxImg = document.getElementById("lightbox-img");
+    const sofraCloseBtn = document.getElementById("lightbox-close");
+    const sofraNextBtn = document.getElementById("lightbox-next");
+    const sofraPrevBtn = document.getElementById("lightbox-prev");
+
+    let sofraCurrentSetIndex = 0;
+    let sofraCurrentImageIndex = 0;
+    const sofraGallerySets = [
+        [
+            "images/sof1.png",
+            "images/sof2.png",
+            "images/sof3.png",
+            "images/sof4.png",
+            "images/sof5.png",
+            "images/sof6.png",
+            "images/sof7.png"
+        ],
+        [
+            "images/sof21.png",
+            "images/sof22.png",
+            "images/sof23.png",
+            "images/sof24.png",
+            "images/sof25.png"
+        ],
+        [
+            "images/sof31.png",
+            "images/sof32.png",
+            "images/sof33.png",
+            "images/sof34.png",
+            "images/sof35.png"
+        ],
+        [
+            "images/sof41.png",
+            "images/sof42.png",
+            "images/sof43.png",
+            "images/sof44.png",
+            "images/sof45.png",
+            "images/sof46.png"
+        ],
+        [
+            "images/sof51.png",
+            "images/sof52.png",
+            "images/sof53.png",
+            "images/sof54.png",
+            "images/sof55.png",
+            "images/sof56.png"
+        ],
+        [
+            "images/sof61.png",
+            "images/sof62.png",
+            "images/sof63.png",
+            "images/sof64.png",
+            "images/sof65.png",
+            "images/sof66.png"
+        ],
+       
+    ];
+
+    function sofraShowCurrentImage() {
+        sofraLightboxImg.src = sofraGallerySets[sofraCurrentSetIndex][sofraCurrentImageIndex];
+    }
+
+    function sofraOpenLightbox(index) {
+        sofraCurrentSetIndex = index;
+        sofraCurrentImageIndex = 0;
+        sofraShowCurrentImage();
+        sofraLightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function sofraCloseLightbox() {
+        sofraLightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+
+    function sofraNextImage() {
+        const setLength = sofraGallerySets[sofraCurrentSetIndex].length;
+        sofraCurrentImageIndex = (sofraCurrentImageIndex + 1) % setLength;
+        sofraShowCurrentImage();
+    }
+
+    function sofraPrevImage() {
+        const setLength = sofraGallerySets[sofraCurrentSetIndex].length;
+        sofraCurrentImageIndex = (sofraCurrentImageIndex - 1 + setLength) % setLength;
+        sofraShowCurrentImage();
+    }
+
+    const sofraGalleryItems = document.querySelectorAll(".gallery-item");
+    sofraGalleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            sofraOpenLightbox(index);
+        });
+    });
+
+    sofraCloseBtn.addEventListener("click", sofraCloseLightbox);
+    sofraNextBtn.addEventListener("click", sofraNextImage);
+    sofraPrevBtn.addEventListener("click", sofraPrevImage);
+
+    sofraLightbox.addEventListener("click", (e) => {
+        if (e.target === sofraLightbox || e.target.classList.contains("lightbox-content")) {
+            sofraCloseLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!sofraLightbox.classList.contains("active")) return;
+        if (e.key === "Escape") sofraCloseLightbox();
+        if (e.key === "ArrowRight") sofraPrevImage();
+        if (e.key === "ArrowLeft") sofraNextImage();
+    });
+}
+
+
 // Enhanced GSAP Animation for Gallery
 if (document.querySelector(".bedroom-gallery")) {
     gsap.from(".gallery-item", {
