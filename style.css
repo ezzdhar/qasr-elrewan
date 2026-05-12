@@ -2234,12 +2234,12 @@ header {
 }
 
 .intro-main-title {
-    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-size:30px;
     color: var(--bg-dark);
     /* Very dark color */
     margin-bottom: 15px;
     line-height: 1.3;
-    font-weight: 800;
+    font-weight:600;
 }
 
 .intro-sub-title {
@@ -2259,9 +2259,9 @@ header {
 .intro-desc-box p {
     color: var(--text-light);
     /* Gray text */
-    font-size: 1.1rem;
+    font-size:15px;
     line-height: 1.9;
-    max-width: 550px;
+    max-width: 500px;
     margin: 0;
     font-weight: 500;
 }

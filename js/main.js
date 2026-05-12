@@ -428,7 +428,16 @@ const closeBtn = document.getElementById("lightbox-close");
 const nextBtn = document.getElementById("lightbox-next");
 const prevBtn = document.getElementById("lightbox-prev");
 
-if (viewBtns.length > 0 && lightbox && document.querySelector('h1').textContent.includes('غرف')) {
+function normalizePageTitle(text) {
+    return text ? text.replace(/\u0640/g, '').trim() : '';
+}
+
+function pageTitleIncludes(term) {
+    const titleEl = document.querySelector('h1');
+    return titleEl ? normalizePageTitle(titleEl.textContent).includes(term) : false;
+}
+
+if (viewBtns.length > 0 && lightbox && pageTitleIncludes('غرف')) {
     let currentSetIndex = 0;
     let currentImageIndex = 0;
     const gallerySets = [
@@ -540,7 +549,7 @@ if (viewBtns.length > 0 && lightbox && document.querySelector('h1').textContent.
 
 
 // Antari Gallery Lightbox
-if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').textContent.includes('الأنتري')) {
+if (document.querySelector('.bedroom-gallery') && pageTitleIncludes('الأنتري')) {
     const antariViewBtns = document.querySelectorAll(".view-btn");
     const antariLightbox = document.getElementById("gallery-lightbox");
     const antariLightboxImg = document.getElementById("lightbox-img");
@@ -637,7 +646,7 @@ if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').t
 
 
 // Sofra Gallery Lightbox
-if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').textContent.includes('السفــــــــــــــــــــــــــرة')) {
+if (document.querySelector('.bedroom-gallery') && pageTitleIncludes('السفرة')) {
     const sofraViewBtns = document.querySelectorAll(".view-btn");
     const sofraLightbox = document.getElementById("gallery-lightbox");
     const sofraLightboxImg = document.getElementById("lightbox-img");
@@ -749,6 +758,194 @@ if (document.querySelector('.bedroom-gallery') && document.querySelector('h1').t
         if (e.key === "Escape") sofraCloseLightbox();
         if (e.key === "ArrowRight") sofraPrevImage();
         if (e.key === "ArrowLeft") sofraNextImage();
+    });
+}
+
+
+// Salon Gallery Lightbox
+if (document.body.dataset.gallery === 'salon' || pageTitleIncludes('الصالون')) {
+    const salonViewBtns = document.querySelectorAll(".view-btn");
+    const salonLightbox = document.getElementById("gallery-lightbox");
+    const salonLightboxImg = document.getElementById("lightbox-img");
+    const salonCloseBtn = document.getElementById("lightbox-close");
+    const salonNextBtn = document.getElementById("lightbox-next");
+    const salonPrevBtn = document.getElementById("lightbox-prev");
+
+    let salonCurrentSetIndex = 0;
+    let salonCurrentImageIndex = 0;
+    const salonGallerySets = [
+        [
+            "images/sal1.png",
+            "images/sal2.png",
+            "images/sal3.png",
+            "images/sal4.png",
+            "images/sal5.png",
+            "images/sal6.png",
+            "images/sal7.png"
+        ],
+        [
+            "images/sal25.png",
+            "images/sal23.png",
+            "images/sal24.png",
+            "images/sal21.png",
+            "images/sal22.png",
+            "images/sal26.png"
+        ],
+        [
+            "images/sal31.png",
+            "images/sal32.png",
+            "images/sal33.png",
+            "images/sal34.png",
+            "images/sal35.png",
+            "images/sal36.png"
+        ],
+       
+    ];
+
+    function salonShowCurrentImage() {
+        salonLightboxImg.src = salonGallerySets[salonCurrentSetIndex][salonCurrentImageIndex];
+    }
+
+    function salonOpenLightbox(index) {
+        salonCurrentSetIndex = index;
+        salonCurrentImageIndex = 0;
+        salonShowCurrentImage();
+        salonLightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function salonCloseLightbox() {
+        salonLightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+
+    function salonNextImage() {
+        const setLength = salonGallerySets[salonCurrentSetIndex].length;
+        salonCurrentImageIndex = (salonCurrentImageIndex + 1) % setLength;
+        salonShowCurrentImage();
+    }
+
+    function salonPrevImage() {
+        const setLength = salonGallerySets[salonCurrentSetIndex].length;
+        salonCurrentImageIndex = (salonCurrentImageIndex - 1 + setLength) % setLength;
+        salonShowCurrentImage();
+    }
+
+    const salonGalleryItems = document.querySelectorAll(".gallery-item");
+    salonGalleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            salonOpenLightbox(index);
+        });
+    });
+
+    salonCloseBtn.addEventListener("click", salonCloseLightbox);
+    salonNextBtn.addEventListener("click", salonNextImage);
+    salonPrevBtn.addEventListener("click", salonPrevImage);
+
+    salonLightbox.addEventListener("click", (e) => {
+        if (e.target === salonLightbox || e.target.classList.contains("lightbox-content")) {
+            salonCloseLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!salonLightbox.classList.contains("active")) return;
+        if (e.key === "Escape") salonCloseLightbox();
+        if (e.key === "ArrowRight") salonPrevImage();
+        if (e.key === "ArrowLeft") salonNextImage();
+    });
+}
+
+
+// Rokna Gallery Lightbox
+if (document.body.dataset.gallery === 'rokna' || pageTitleIncludes('الركنة')) {
+    const roknaViewBtns = document.querySelectorAll(".view-btn");
+    const roknaLightbox = document.getElementById("gallery-lightbox");
+    const roknaLightboxImg = document.getElementById("lightbox-img");
+    const roknaCloseBtn = document.getElementById("lightbox-close");
+    const roknaNextBtn = document.getElementById("lightbox-next");
+    const roknaPrevBtn = document.getElementById("lightbox-prev");
+
+    let roknaCurrentSetIndex = 0;
+    let roknaCurrentImageIndex = 0;
+    const roknaGallerySets = [
+        [
+            "images/rok1.png",
+            "images/rok2.png",
+            "images/rok3.png",
+            "images/rok4.png",
+            "images/rok5.png",
+            "images/rok6.png"
+        ],
+        [
+            "images/rok21.png",
+            "images/rok22.png",
+            "images/rok23.png",
+            "images/rok25.png",
+            "images/rok26.png",
+            "images/rok24.png"
+        ],
+        [
+            "images/rok31.png",
+            "images/rok32.png",
+            "images/rok33.png",
+            "images/rok35.png",
+            "images/rok34.png"
+        ],
+       
+    ];
+
+    function roknaShowCurrentImage() {
+        roknaLightboxImg.src = roknaGallerySets[roknaCurrentSetIndex][roknaCurrentImageIndex];
+    }
+
+    function roknaOpenLightbox(index) {
+        roknaCurrentSetIndex = index;
+        roknaCurrentImageIndex = 0;
+        roknaShowCurrentImage();
+        roknaLightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function roknaCloseLightbox() {
+        roknaLightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+    }
+
+    function roknaNextImage() {
+        const setLength = roknaGallerySets[roknaCurrentSetIndex].length;
+        roknaCurrentImageIndex = (roknaCurrentImageIndex + 1) % setLength;
+        roknaShowCurrentImage();
+    }
+
+    function roknaPrevImage() {
+        const setLength = roknaGallerySets[roknaCurrentSetIndex].length;
+        roknaCurrentImageIndex = (roknaCurrentImageIndex - 1 + setLength) % setLength;
+        roknaShowCurrentImage();
+    }
+
+    const roknaGalleryItems = document.querySelectorAll(".gallery-item");
+    roknaGalleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            roknaOpenLightbox(index);
+        });
+    });
+
+    roknaCloseBtn.addEventListener("click", roknaCloseLightbox);
+    roknaNextBtn.addEventListener("click", roknaNextImage);
+    roknaPrevBtn.addEventListener("click", roknaPrevImage);
+
+    roknaLightbox.addEventListener("click", (e) => {
+        if (e.target === roknaLightbox || e.target.classList.contains("lightbox-content")) {
+            roknaCloseLightbox();
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (!roknaLightbox.classList.contains("active")) return;
+        if (e.key === "Escape") roknaCloseLightbox();
+        if (e.key === "ArrowRight") roknaPrevImage();
+        if (e.key === "ArrowLeft") roknaNextImage();
     });
 }
 
