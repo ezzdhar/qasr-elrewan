@@ -1009,3 +1009,82 @@ if (document.querySelector('.pssSwiper')) {
 
 
 
+
+// Image Loading Indicator Logic
+function initImageLoading() {
+    // 1. Image Containers Loading State (Gallery, Products, Services)
+    const containers = document.querySelectorAll('.gallery-item, .product-img, .service-card-img');
+    containers.forEach(container => {
+        const img = container.querySelector('img');
+        if (img) {
+            if (img.complete) {
+                container.classList.add('loaded');
+            } else {
+                img.addEventListener('load', () => {
+                    container.classList.add('loaded');
+                });
+                img.addEventListener('error', () => {
+                    // Optional: handle error state if needed
+                });
+            }
+        }
+    });
+
+    // 2. Lightbox Loading State
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxContent = document.querySelector('.lightbox-content');
+
+    if (lightbox && lightboxImg && lightboxContent) {
+        // Inject loader if not exists
+        if (!document.querySelector('.lightbox-loader')) {
+            const loader = document.createElement('div');
+            loader.className = 'lightbox-loader';
+            lightboxContent.appendChild(loader);
+        }
+
+        // Observer for lightbox activity
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.attributeName === 'class') {
+                    if (lightbox.classList.contains('active')) {
+                        handleLightboxLoad();
+                    }
+                }
+            });
+        });
+
+        observer.observe(lightbox, { attributes: true });
+
+        // Function to handle image source change
+        function handleLightboxLoad() {
+            if (!lightboxImg.src || lightboxImg.src === window.location.href) return;
+            
+            lightbox.classList.add('loading');
+            
+            // If image is already cached
+            if (lightboxImg.complete) {
+                lightbox.classList.remove('loading');
+            } else {
+                lightboxImg.onload = () => {
+                    lightbox.classList.remove('loading');
+                };
+            }
+        }
+
+        // Intercept src changes (since the gallery logic changes src directly)
+        const originalSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src');
+        Object.defineProperty(lightboxImg, 'src', {
+            set: function(val) {
+                lightbox.classList.add('loading');
+                originalSrcDescriptor.set.call(this, val);
+            },
+            get: function() {
+                return originalSrcDescriptor.get.call(this);
+            }
+        });
+    }
+}
+
+// Initialize on load
+window.addEventListener('DOMContentLoaded', initImageLoading);
