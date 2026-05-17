@@ -213,7 +213,7 @@ header {
 }
 
 .hero-content h1 {
-    font-size: clamp(2rem, 8vw, 4.8rem);
+    font-size: 50px;
     font-weight: 600;
     margin-bottom: 20px;
     line-height: 1.3;
