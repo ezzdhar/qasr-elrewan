@@ -668,6 +668,10 @@ header {
     .custom-cta {
         margin-top: 10px;
     }
+
+    .more-link {
+        margin-bottom: 1rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2441,7 +2445,8 @@ header {
     .service-card-img {
         flex: none;
         width: 100%;
-        height: 420px; /* Increased height to show more of the image without making it too huge */
+        height: 420px;
+        /* Increased height to show more of the image without making it too huge */
         order: -1;
     }
 
@@ -2449,7 +2454,8 @@ header {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center; /* Center it so it distributes the space evenly */
+        object-position: center;
+        /* Center it so it distributes the space evenly */
         display: block;
     }
 
